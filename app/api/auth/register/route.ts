@@ -60,53 +60,52 @@ export const POST = async (request: NextRequest) => {
       );
     }
 
-     let otp: any;
+    let otp: any;
 
-      try {
-        otp = await SendOtp(emailid);
-        if (!isOtpT(otp)) {
-          return new Response(
-            JSON.stringify({
-              status: 500,
-              message: otp.error.message,
-            }),
-            { status: 500 }
-          );
-        }
-      } catch (error: any) {
+    try {
+      otp = await SendOtp(emailid);
+      if (!isOtpT(otp)) {
         return new Response(
           JSON.stringify({
             status: 500,
-            message: error.message,
+            message: otp.error.message,
           }),
           { status: 500 }
         );
       }
+    } catch (error: any) {
+      return new Response(
+        JSON.stringify({
+          status: 500,
+          message: error.message,
+        }),
+        { status: 500 }
+      );
+    }
 
-          try {
-            const newotp = {
-              emailId: emailid,
-              otp: otp.otp,
-            };
-            await AddOtp(newotp);
+    try {
+      const newotp = {
+        emailId: emailid,
+        otp: otp.otp,
+      };
+      await AddOtp(newotp);
 
-            return new Response(
-              JSON.stringify({
-                status: 200,
-                message: "Otp send successfully",
-              }),
-              { status: 200 }
-            );
-          } catch (error: any) {
-            return new Response(
-              JSON.stringify({
-                status: 500,
-                message: error.message,
-              }),
-              { status: 500 }
-            );
-          }
-
+      return new Response(
+        JSON.stringify({
+          status: 200,
+          message: "Otp send successfully",
+        }),
+        { status: 200 }
+      );
+    } catch (error: any) {
+      return new Response(
+        JSON.stringify({
+          status: 500,
+          message: error.message,
+        }),
+        { status: 500 }
+      );
+    }
   } catch (error) {
     return new Response("Failed", { status: 500 });
   }
