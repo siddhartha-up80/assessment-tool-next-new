@@ -1,0 +1,74 @@
+/* login.module.css */
+
+
+.mainsec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .sec {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; 
+  }
+  
+  
+  .left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  .right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  .cardsec {
+    width: 100%;
+    max-width: 400px; 
+  }
+  
+  .card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  
+  .card img {
+    width: 100px; 
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .formsec {
+  
+    max-width: 400px; 
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  .socialButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  .socialButtons button {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 200px; 
+  }
